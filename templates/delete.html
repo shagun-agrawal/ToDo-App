@@ -1,0 +1,32 @@
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{task.id}}">
+    Delete
+    </button>
+        {% if task.complete == True %}
+        <strike>{{task}}</strike>
+        {% else %}
+        <span>{{task}}</span>
+        {% endif %}
+		<!-- Modal -->
+    <div class="modal fade" id="exampleModal{{task.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+	
+        <h5 class="modal-title text-dark" id="exampleModalLabel">{{task.title}}</h5>
+		
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-dark">
+       Do You Wona Delete This {{task}}
+      
+      </div> 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="{% url 'delete_task' task.id %}" class="btn btn-primary">Delete</a>
+      </div>
+    </div>
+   </div>
+   </div>
+   </div>
+   
